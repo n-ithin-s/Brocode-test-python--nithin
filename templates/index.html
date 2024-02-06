@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+</head>
+<style>
+    body{
+        background: url('https://www.netcostmarket.com/wp-content/uploads/2019/10/food-background-1.jpg');
+        background-repeat: no-repeat;
+        background-size:cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    li{
+        text-decoration: none;
+
+    }
+    li:hover{
+        
+        cursor: pointer;
+    }
+    a:hover{
+        color: red;
+    }
+    a{
+        text-decoration: none;
+        
+    }
+   
+</style>
+<body>
+    
+    <h1>All Recipes</h1>
+    <ul>
+        {% for recipe in recipes %}
+            <li><a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <h2>Categories</h2>
+    <ul>
+        {% for category in categories %}
+            <li><a href="{% url 'category_detail' category.id %}">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
